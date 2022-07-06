@@ -63,7 +63,7 @@ export default function MediaControlCard() {
           </CardContent>
           <Box sx={{ display: 'flex', justifyContent: "end", alignItems: 'center', pl: 1, pb: 1 }}>
               <Button variant="outlined" className='close'>Close</Button>
-              <Button variant="contained">Publish</Button>
+              <Button variant="contained" className='publish'>Publish</Button>
             </Box>
         </Box>
       </Grid>

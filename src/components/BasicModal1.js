@@ -28,6 +28,11 @@ const button = {
   alignItems: 'center',
 };
 
+const create = {
+    border: "1px solid #EEB5EB",
+ //    color: "#EEB5EB"
+   };
+
 export default function BasicModal1() {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
@@ -162,7 +167,7 @@ export default function BasicModal1() {
 
   return (
     <div>
-      <Button onClick={handleOpen} startIcon={<Iconify icon="eva:plus-fill" />}>
+      <Button sx={create} onClick={handleOpen} startIcon={<Iconify icon="eva:plus-fill" />}>
         Create Event
       </Button>
 

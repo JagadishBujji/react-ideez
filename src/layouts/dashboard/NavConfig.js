@@ -14,7 +14,7 @@ const navConfig = [
   },
   {
     title: 'Job Post',
-    path: '/dashboard/user',
+    path: '/dashboard/jobs',
     icon: getIcon('eva:people-fill'),
   },
   {

@@ -19,6 +19,7 @@ export default function MediaControlCard() {
   const theme = useTheme();
 
   return (
+
     <Card sx={{ display: 'flex', background: '#fff', borderRadius: '5px', position: 'relative' }}>
       <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
         <Grid item xs={4} spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
@@ -37,6 +38,7 @@ export default function MediaControlCard() {
               <Typography component="div" variant="h5">
                 <b>Data Associate, Alexa Shopping</b>
               </Typography>
+              {/* ... options */}
               <AccountMenu />
             </div>
             <Typography variant="subtitle1" color="text.secondary" component="div">
@@ -63,7 +65,7 @@ export default function MediaControlCard() {
           </CardContent>
           <Box sx={{ display: 'flex', justifyContent: "end", alignItems: 'center', pl: 1, pb: 1 }}>
               <Button variant="outlined" className='close'>Close</Button>
-              <Button variant="contained">Publish</Button>
+              <Button variant="contained" className='publish'>Publish</Button>
             </Box>
         </Box>
       </Grid>

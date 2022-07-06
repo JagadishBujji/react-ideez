@@ -20,6 +20,7 @@ const style = {
   p: 2,
   maxHeight: '700px',
   overflow: 'auto',
+  borderRadius: "5px"
 };
 
 const button = {
@@ -27,6 +28,11 @@ const button = {
   justifyContent: 'end',
   alignItems: 'center',
 };
+
+const create = {
+   border: "1px solid #EEB5EB",
+//    color: "#EEB5EB"
+  };
 
 export default function BasicModal() {
   const [open, setOpen] = React.useState(false);
@@ -162,7 +168,7 @@ export default function BasicModal() {
 
   return (
     <div>
-      <Button onClick={handleOpen} startIcon={<Iconify icon="eva:plus-fill" />}>
+      <Button sx={create} onClick={handleOpen} startIcon={<Iconify icon="eva:plus-fill" />}>
         Create Job
       </Button>
 

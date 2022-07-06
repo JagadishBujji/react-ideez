@@ -10,6 +10,7 @@ import NotFound from './pages/Page404';
 import Register from './pages/Register';
 import Products from './pages/Products';
 import DashboardApp from './pages/DashboardApp';
+import ItemDescription from './components/ItemDescription';
 
 // ----------------------------------------------------------------------
 
@@ -20,7 +21,8 @@ export default function Router() {
       element: <DashboardLayout />,
       children: [
         { path: 'app', element: <DashboardApp /> },
-        { path: 'user', element: <User /> },
+        { path: 'jobs', element: <User /> },
+        { path: 'jobs/:jobId', element: <ItemDescription /> },
         { path: 'products', element: <Products /> },
         { path: 'blog', element: <Blog /> },
       ],

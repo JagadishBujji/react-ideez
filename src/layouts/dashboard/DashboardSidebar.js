@@ -57,7 +57,7 @@ export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar }) {
     <Scrollbar
       sx={{
         height: 1,
-        '& .simplebar-content': { height: 1, display: 'flex', flexDirection: 'column' },
+        '& .simplebar-content': { height: 1, display: 'flex', flexDirection: 'column', backgroundColor: "#E7f6fc" },
       }}
     >
       <Box sx={{ px: 2.5, py: 3, display: 'inline-flex' }}>

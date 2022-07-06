@@ -33,28 +33,96 @@ const SimpleBarStyle = styled(SimpleBarReact)(({ theme }) => ({
     zIndex: 'inherit',
   },
   '& .location': {
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center"
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
   },
   '& .location1': {
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center"
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
   },
   '& .profile-avatra': {
-     width: "100%",
+    width: '100%',
   },
   '& .menu': {
-     position: "absolute",
-     right: "5px",
+    position: 'absolute',
+    right: '5px',
   },
-  
+
   '& .close': {
-     marginRight: "10px"
+    marginRight: '10px',
+    border: '1px solid #EEB5EB',
+    color: '#EEB5EB',
   },
- 
+  '& .publish': {
+    backgroundColor: '#EEB5EB',
+    '&:hover': {
+      backgroundColor: '#EEB5EB',
+    },
+  },
+  '& .css-jjtu05': {
+    backgroundColor: '#f2f2f2',
+  },
+  '& .d-flex': {
+    display: 'flex',
+  },
+  '& .message-list': {
+    textAlign: 'left',
+    maxHeight: '700px',
+    overflow: 'auto',
+  },
+  '& .message': {
+    color: '#000',
+    textDecoration: 'none',
+  },
+  '& ::-webkit-scrollbar ': {
+    width: '5px',
+  },
+  '& ::-webkit-scrollbar-track  ': {
+    boxShadow: 'inset 0 0 5px grey',
+    borderRadius: '10px',
+  },
+  '& ::-webkit-scrollbar-thumb  ': {
+    background: '#ccc',
+    borderRadius: '10px',
+  },
+  '& ::-webkit-scrollbar-thumb:hover': {
+    background: '#CCC',
+  },
+  '& .jobpost:hover': {
+    background: '#E7F6FC',
+  },
+  '& .jobpost1:hover': {
+    background: '#fff',
+  },
+  '& .message-content': {
+    textAlign: 'left',
+  },
+  '& .insights': {
+    marginTop: '10px',
+    textAlign: 'left',
+  },
+  '& .skills': {
+    display: 'flex',
+    width: '100%',
+  },
+  '& .java,.react,.javascript,.html,.css': {
+    width: '20%',
+    background: '#EEB5EB',
+    color: '#fff',
+    padding: '5px',
+    textAlign: 'center',
+    fontSize: '18px',
+    marginRight: '10px',
+    borderRadius: '15px',
+  },
+  '& .Certificate': {
+    marginTop: '10px',
+    textAlign: 'left',
+  },
 }));
+// css-jjtu05
 
 // ----------------------------------------------------------------------
 

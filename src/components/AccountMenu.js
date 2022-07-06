@@ -12,9 +12,11 @@ import PersonAdd from '@mui/icons-material/PersonAdd';
 import Settings from '@mui/icons-material/Settings';
 import Logout from '@mui/icons-material/Logout';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
+import { useNavigate } from 'react-router-dom';
 // import Button from '@mui/material/Button';
 
 export default function AccountMenu() {
+  const navigate = useNavigate();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
@@ -77,8 +79,16 @@ export default function AccountMenu() {
         transformOrigin={{ horizontal: 'right', vertical: 'top' }}
         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
       >
-        <MenuItem>Edit</MenuItem>
-        <MenuItem>View</MenuItem>
+        <MenuItem
+          onClick={() => navigate('/dashboard/jobs/123', { state: { type: 'jobs', id: '123', action: 'edit' } })}
+        >
+          Edit
+        </MenuItem>
+        <MenuItem
+          onClick={() => navigate('/dashboard/jobs/123', { state: { type: 'jobs', id: '123', action: 'view' } })}
+        >
+          View
+        </MenuItem>
         {/* <Divider /> */}
       </Menu>
     </>
