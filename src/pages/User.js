@@ -163,7 +163,7 @@ export default function User() {
           {/* <Button variant="contained" component={RouterLink} to="#" startIcon={<Iconify icon="eva:plus-fill" />}>
             New User
           </Button> */}
-          <BasicModal/>
+          <BasicModal />
         </Stack>
 
         <Card>
@@ -172,12 +172,22 @@ export default function User() {
           <Scrollbar sx={{ padding: '20px' }}>
             <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
               <Grid item xs={8}>
-                <Item><MediaControlCard /></Item>
+                <Item>
+                  <MediaControlCard
+                    head="Digital Associate, Alexa shopping"
+                    company="Tech Solutions"
+                    time="0-2 Years"
+                    location="Chennai"
+                    // skills="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+                    desc="Lorem ipsum dolor sit amet, consecte,Lorem ipsum dolor sit amet, consecte,"
+                    payment="1.5 - 2.5 pa"
+                    type="job"
+                  />
+                </Item>
               </Grid>
               <Grid item xs={4}>
                 <Item>xs=4</Item>
               </Grid>
-             
             </Grid>
 
             {/* <TableContainer sx={{ minWidth: 800 }}>
@@ -249,7 +259,6 @@ export default function User() {
                 )}
               </Table>
             </TableContainer> */}
-            
           </Scrollbar>
 
           {/* <TablePagination

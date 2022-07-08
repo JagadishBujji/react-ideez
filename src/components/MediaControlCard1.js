@@ -35,7 +35,7 @@ export default function MediaControlCard() {
           <CardContent sx={{ flex: '1 0 auto', display: 'grid' }}>
             <div className="row location1">
               <Typography component="div" variant="h5">
-                <b>Data Associate, Alexa Shopping</b>
+                <b>Digital Analysts Workshop</b>
               </Typography>
               <AccountMenu1 />
             </div>

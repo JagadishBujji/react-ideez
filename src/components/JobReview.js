@@ -23,8 +23,10 @@ import {
 } from '@mui/material';
 import ApplicantCard from './Applicant/ApplicantCard';
 import ApplicantCertificate from './Applicant/ApplicantCertificate';
+import ApplicantContact from './Applicant/ApplicantContact';
 import ApplicantDesc from './Applicant/ApplicantDesc';
 import ApplicantInsights from './Applicant/ApplicantInsights';
+import ApplicantResume from './Applicant/ApplicantResume';
 import ApplicantSkills from './Applicant/ApplicantSkills';
 import Scrollbar from './Scrollbar';
 
@@ -40,18 +42,25 @@ const JobReview = () => {
   const desc = {
     background: '#f2f2f2',
     padding: '25px',
-    marginTop: '10px',
-    maxHeight: "800px",
-    overflow: "auto"
+    // marginTop: '5px',
+    maxHeight: '800px',
+    overflow: 'auto',
   };
   return (
     <>
       <Container>
         <Scrollbar sx={{ padding: '20px' }}>
-          <Card sx={{ display: 'flex', background: '#fff', borderRadius: '5px', position: 'relative' }}>
+          <Card
+            sx={{ display: 'flex', background: '#fff', borderRadius: '5px', position: 'relative', boxShadow: 'none' }}
+          >
             <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
-              <Grid item xs={5}>
-                <Item>
+              <Grid item xs={5} sx={{background: "#f2f2f2"}}>
+                <Item
+                  sx={{
+                    boxShadow:
+                      '0px 3px 1px -2px rgb(145 158 171 / 20%), 0px 2px 2px 0px rgb(145 158 171 / 14%), 0px 1px 5px 0px rgb(145 158 171 / 12%)',
+                  }}
+                >
                   <article className="message-list">
                     <ul className="messages">
                       <li className="day">
@@ -59,19 +68,19 @@ const JobReview = () => {
                           Today
                         </a> */}
                         <ApplicantCard />
-                        <Divider/>
+                        <Divider />
                         <ApplicantCard />
-                        <Divider/>
+                        <Divider />
                         <ApplicantCard />
-                        <Divider/>
+                        <Divider />
                         <ApplicantCard />
-                        <Divider/>
+                        <Divider />
                         <ApplicantCard />
-                        <Divider/>
+                        <Divider />
                         <ApplicantCard />
-                        <Divider/>
+                        <Divider />
                         <ApplicantCard />
-                        <Divider/>
+                        <Divider />
                         <ApplicantCard />
                       </li>
                     </ul>
@@ -81,8 +90,10 @@ const JobReview = () => {
               <Grid item xs={7} sx={desc}>
                 <ApplicantDesc />
                 <ApplicantInsights />
-                <ApplicantSkills/>
-                <ApplicantCertificate/>
+                <ApplicantSkills />
+                <ApplicantCertificate />
+                <ApplicantResume />
+                <ApplicantContact />
               </Grid>
             </Grid>
           </Card>

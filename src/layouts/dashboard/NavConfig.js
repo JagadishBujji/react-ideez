@@ -19,12 +19,12 @@ const navConfig = [
   },
   {
     title: 'Event Post',
-    path: '/dashboard/products',
+    path: '/dashboard/events',
     icon: getIcon('eva:shopping-bag-fill'),
   },
   {
     title: 'Profile',
-    path: '/dashboard/blog',
+    path: '/dashboard/profile',
     icon: getIcon('eva:file-text-fill'),
   },
   // {

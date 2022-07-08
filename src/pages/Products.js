@@ -35,7 +35,7 @@ import { UserListHead, UserListToolbar, UserMoreMenu } from '../sections/@dashbo
 // mock
 import USERLIST from '../_mock/user';
 // import MediaControlCard from 'src/components/Reuseable/MediaControlCard';
-import MediaControlCard1 from '../components/MediaControlCard1';
+import MediaControlCard from '../components/MediaControlCard';
 // import BasicModal from '../components/BasicModal';
 import BasicModal1 from '../components/BasicModal1';
 // import { styled } from '@mui/material/styles';
@@ -92,7 +92,7 @@ function applySortFilter(array, comparator, query) {
   return stabilizedThis.map((el) => el[0]);
 }
 
-export default function User() {
+export default function User(props) {
   const [page, setPage] = useState(0);
 
   const [order, setOrder] = useState('asc');
@@ -164,7 +164,7 @@ export default function User() {
           {/* <Button variant="contained" component={RouterLink} to="#" startIcon={<Iconify icon="eva:plus-fill" />}>
             New User
           </Button> */}
-          <BasicModal1/>
+          <BasicModal1 />
         </Stack>
 
         <Card>
@@ -173,12 +173,21 @@ export default function User() {
           <Scrollbar sx={{ padding: '20px' }}>
             <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
               <Grid item xs={8}>
-                <Item><MediaControlCard1 /></Item>
+                <Item>
+                  <MediaControlCard
+                    head="Event Planning Program"
+                    company="TCS Technologies"
+                    location="chennai"
+                    time="21st Aug 2022"
+                    desc="Lorem ipsum dolor sit amet, consecte,Lorem ipsum dolor sit amet, consecte,Lorem ipsum dolor sit amet, consecteLorem ipsum dolor sit amet, consecte"
+                    payment="Rs.2000"
+                    type="event"
+                  />
+                </Item>
               </Grid>
               <Grid item xs={4}>
                 <Item>xs=4</Item>
               </Grid>
-             
             </Grid>
 
             {/* <TableContainer sx={{ minWidth: 800 }}>
@@ -250,7 +259,6 @@ export default function User() {
                 )}
               </Table>
             </TableContainer> */}
-            
           </Scrollbar>
 
           {/* <TablePagination

@@ -21,9 +21,10 @@ import {
   styled,
   Divider,
 } from '@mui/material';
-import ApplicantExperinceCard from './ApplicantExperinceCard';
+//   import ApplicantExperinceCard from './ApplicantExperinceCard';
+import DownloadForOfflineIcon from '@mui/icons-material/DownloadForOffline';
 
-const ApplicantCertificate = () => {
+const ApplicantResume = () => {
   const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
     ...theme.typography.body2,
@@ -33,18 +34,19 @@ const ApplicantCertificate = () => {
   }));
   return (
     <>
-      <Item className="Certificate">
+      <Item className="Resume">
         <header>
           <Typography variant="h6" sx={{ mb: 2 }}>
-            Certificate
+            Resume
           </Typography>
-          <ApplicantExperinceCard />
-          <ApplicantExperinceCard />
-          <ApplicantExperinceCard />
+          <div className='row resume-download' >
+            <p className="pdf"><b>Jagadish kumar.pdf</b></p>
+            <DownloadForOfflineIcon fontSize='large'/>
+          </div>
         </header>
       </Item>
     </>
   );
 };
 
-export default ApplicantCertificate;
+export default ApplicantResume;

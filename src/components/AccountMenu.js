@@ -15,7 +15,7 @@ import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import { useNavigate } from 'react-router-dom';
 // import Button from '@mui/material/Button';
 
-export default function AccountMenu() {
+export default function AccountMenu({ type }) {
   const navigate = useNavigate();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
@@ -79,16 +79,46 @@ export default function AccountMenu() {
         transformOrigin={{ horizontal: 'right', vertical: 'top' }}
         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
       >
-        <MenuItem
-          onClick={() => navigate('/dashboard/jobs/123', { state: { type: 'jobs', id: '123', action: 'edit' } })}
-        >
-          Edit
-        </MenuItem>
-        <MenuItem
-          onClick={() => navigate('/dashboard/jobs/123', { state: { type: 'jobs', id: '123', action: 'view' } })}
-        >
-          View
-        </MenuItem>
+        {type === 'job' ? (
+          <>
+            <MenuItem
+              onClick={() =>
+                navigate('/dashboard/jobs/123/manage-job', { state: { type, id: '123', action: 'manage-job' } })
+              }
+            >
+              Manage Job
+            </MenuItem>
+            <MenuItem
+              onClick={() =>
+                navigate('/dashboard/jobs/123/view-applicants', {
+                  state: { type, id: '123', action: 'view-applicants' },
+                })
+              }
+            >
+              View Applicants
+            </MenuItem>
+          </>
+        ) : (
+          <>
+            <MenuItem
+              onClick={() =>
+                navigate('/dashboard/events/123/manage-event', { state: { type, id: '123', action: 'manage-event' } })
+              }
+            >
+              Manage Event
+            </MenuItem>
+            <MenuItem
+              onClick={() =>
+                navigate('/dashboard/events/123/view-applicants', {
+                  state: { type, id: '123', action: 'view-applicants' },
+                })
+              }
+            >
+              View Applicants
+            </MenuItem>
+          </>
+        )}
+
         {/* <Divider /> */}
       </Menu>
     </>

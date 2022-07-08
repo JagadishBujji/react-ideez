@@ -18,7 +18,7 @@ const SORT_OPTIONS = [
 
 // ----------------------------------------------------------------------
 
-export default function Blog() {
+export default function Profile() {
   return (
     <Page title="Dashboard: Blog">
       <Container>
@@ -30,17 +30,6 @@ export default function Blog() {
             New Post
           </Button> */}
         </Stack>
-
-        {/* <Stack mb={5} direction="row" alignItems="center" justifyContent="space-between">
-          <BlogPostsSearch posts={POSTS} />
-          <BlogPostsSort options={SORT_OPTIONS} />
-        </Stack> */}
-
-        {/* <Grid container spacing={3}>
-          {POSTS.map((post, index) => (
-            <BlogPostCard key={post.id} post={post} index={index} />
-          ))}
-        </Grid> */}
       </Container>
     </Page>
   );

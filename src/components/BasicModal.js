@@ -13,14 +13,23 @@ const style = {
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-  width: 800,
+  width: 400,
   bgcolor: 'background.paper',
   border: '2px solid #fff',
   boxShadow: 24,
   p: 2,
-  maxHeight: '700px',
+  maxHeight: '500px',
   overflow: 'auto',
-  borderRadius: "5px"
+  borderRadius: '5px',
+  '@media (max-width:400px)': {
+    width: 400,
+    maxHeight: '500px',
+  },
+
+  '@media (min-width:1200px)': {
+    width: 800,
+    maxHeight: '700px',
+  },
 };
 
 const button = {
@@ -30,9 +39,9 @@ const button = {
 };
 
 const create = {
-   border: "1px solid #EEB5EB",
-//    color: "#EEB5EB"
-  };
+  border: '1px solid #EEB5EB',
+  //    color: "#EEB5EB"
+};
 
 export default function BasicModal() {
   const [open, setOpen] = React.useState(false);

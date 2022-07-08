@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useTheme } from '@mui/material/styles';
+// import { useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
@@ -10,19 +10,42 @@ import SkipPreviousIcon from '@mui/icons-material/SkipPrevious';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import SkipNextIcon from '@mui/icons-material/SkipNext';
 import { Button, Grid, styled } from '@mui/material';
+import { createTheme } from '@mui/material/styles';
 // import Button from '@mui/material/Button';
 import AccountMenu from './AccountMenu';
 
+export default function MediaControlCard(props) {
+  // const theme = useTheme();
 
+  const theme = createTheme();
 
-export default function MediaControlCard() {
-  const theme = useTheme();
+  theme.typography.h5 = {
+    fontSize: '1rem',
+    '@media (min-width:600px)': {
+      fontSize: '16px',
+    },
+    [theme.breakpoints.up('md')]: {
+      fontSize: '18px',
+      fontWeight: "900"
+      
+    },
+  };
 
+  theme.typography.subtitle1 = {
+    fontSize: '1rem',
+    '@media (min-width:600px)': {
+      fontSize: '14px',
+    },
+    [theme.breakpoints.up('md')]: {
+      fontSize: '16px',
+      fontWeight: "600"
+      
+    },
+  };
   return (
-
     <Card sx={{ display: 'flex', background: '#fff', borderRadius: '5px', position: 'relative' }}>
       <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
-        <Grid item xs={4} spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
+        <Grid item xs={4}>
           <CardMedia
             component="img"
             // sx={{ width: 151 }}
@@ -32,42 +55,47 @@ export default function MediaControlCard() {
           />
           {/* <img src="/images/profile.png" alt='' className='profile-avatra'/> */}
         </Grid>
-        <Box sx={{ display: 'flex', flexDirection: 'column', textAlign: 'left' }}>
-          <CardContent sx={{ flex: '1 0 auto', display: 'grid' }}>
+        <Grid item xs={8}>
+          <CardContent sx={{ flex: '1 0 auto', textAlign: 'left' }}>
             <div className="row location1">
-              <Typography component="div" variant="h5">
-                <b>Data Associate, Alexa Shopping</b>
+              <Typography component="div" theme={theme} variant="h5">
+                <b>{props.head}</b>
               </Typography>
               {/* ... options */}
-              <AccountMenu />
+              <AccountMenu type={props.type} />
             </div>
-            <Typography variant="subtitle1" color="text.secondary" component="div">
-              tech solution
+            <Typography variant="subtitle1" theme={theme} color="text.secondary" component="div">
+              {props.company}
             </Typography>
             <div className="row location">
-              <Typography variant="subtitle1" color="text.secondary" component="div">
-                0-2 years
+              <Typography variant="subtitle1" theme={theme} color="text.secondary" component="div">
+                {props.time}
               </Typography>
-              <Typography variant="subtitle1" color="text.secondary" component="div">
-                Chennai
+              <Typography variant="subtitle1" theme={theme} color="text.secondary" component="div">
+                {props.location}
               </Typography>
             </div>
-            <Typography variant="subtitle1" color="text.secondary" component="div">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            <Typography variant="subtitle1" theme={theme} color="text.secondary" component="div">
+              {/* Lorem ipsum dolor sit amet, consectetur adipiscing elit. */}
+              {props.skills}
             </Typography>
-            <Typography variant="subtitle1" color="text.secondary" component="div">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            <Typography variant="subtitle1" theme={theme} color="text.secondary" component="div">
+              {props.desc}
             </Typography>
-            <Typography variant="subtitle1" color="text.secondary" component="div">
-              1.5 - 2.5 Pa
+            <Typography variant="subtitle1" theme={theme} color="text.secondary" component="div">
+              {props.payment}
             </Typography>
-            
-          </CardContent>
-          <Box sx={{ display: 'flex', justifyContent: "end", alignItems: 'center', pl: 1, pb: 1 }}>
-              <Button variant="outlined" className='close'>Close</Button>
-              <Button variant="contained" className='publish'>Publish</Button>
+
+            <Box sx={{ display: 'flex', justifyContent: 'end', alignItems: 'center', pl: 1, pb: 1 }}>
+              <Button variant="outlined" className="close">
+                Close
+              </Button>
+              <Button variant="contained" className="publish">
+                Publish
+              </Button>
             </Box>
-        </Box>
+          </CardContent>
+        </Grid>
       </Grid>
     </Card>
   );

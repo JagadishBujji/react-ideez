@@ -3,7 +3,7 @@ import { Navigate, useRoutes } from 'react-router-dom';
 import DashboardLayout from './layouts/dashboard';
 import LogoOnlyLayout from './layouts/LogoOnlyLayout';
 //
-import Blog from './pages/Blog';
+import Profile from './pages/Profile';
 import User from './pages/User';
 import Login from './pages/Login';
 import NotFound from './pages/Page404';
@@ -11,6 +11,8 @@ import Register from './pages/Register';
 import Products from './pages/Products';
 import DashboardApp from './pages/DashboardApp';
 import ItemDescription from './components/ItemDescription';
+import JobReview from './components/JobReview';
+import ManageItems from './components/ManageJobs/ManageItems';
 
 // ----------------------------------------------------------------------
 
@@ -22,9 +24,43 @@ export default function Router() {
       children: [
         { path: 'app', element: <DashboardApp /> },
         { path: 'jobs', element: <User /> },
-        { path: 'jobs/:jobId', element: <ItemDescription /> },
-        { path: 'products', element: <Products /> },
-        { path: 'blog', element: <Blog /> },
+        {
+          path: 'jobs/:jobId',
+          element: (
+            <ItemDescription
+              profile="/images/profile.png"
+              jobtitle="Digital Associate, Alexa shopping"
+              Company="Tech Solutions chennai avadi"
+              desc="Lorem ipsum dolor sit amet"
+              type="job"
+            />
+          ),
+          children: [
+            { path: 'view-applicants', element: <JobReview /> },
+            { path: 'manage-job', element: <ManageItems /> },
+          ],
+        },
+        {
+          path: 'events',
+          element: <Products />,
+        },
+        {
+          path: 'events/:eventId',
+          element: (
+            <ItemDescription
+              profile="/images/profile.png"
+              jobtitle="Event Planning Program"
+              Company="TCS Technologies"
+              desc="Lorem ipsum dolor sit amet"
+              type="event"
+            />
+          ),
+          children: [
+            { path: 'view-applicants', element: <JobReview /> },
+            { path: 'manage-event', element: <ManageItems /> },
+          ],
+        },
+        { path: 'profile', element: <Profile /> },
       ],
     },
     {

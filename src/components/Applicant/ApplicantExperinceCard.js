@@ -25,6 +25,7 @@ import {
 const ApplicantExperinceCard = () => {
   const jobpost = {
     display: 'flex',
+    
   };
   const profile = {
     borderRadius: '50%',

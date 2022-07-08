@@ -102,10 +102,14 @@ const SimpleBarStyle = styled(SimpleBarReact)(({ theme }) => ({
   '& .insights': {
     marginTop: '10px',
     textAlign: 'left',
+    boxShadow:
+      '0px 3px 1px -2px rgb(145 158 171 / 20%), 0px 2px 2px 0px rgb(145 158 171 / 14%), 0px 1px 5px 0px rgb(145 158 171 / 12%)'
   },
   '& .skills': {
     display: 'flex',
+    flexWrap: 'wrap',
     width: '100%',
+    
   },
   '& .java,.react,.javascript,.html,.css': {
     width: '20%',
@@ -116,10 +120,39 @@ const SimpleBarStyle = styled(SimpleBarReact)(({ theme }) => ({
     fontSize: '18px',
     marginRight: '10px',
     borderRadius: '15px',
+    marginBottom: '10px',
   },
   '& .Certificate': {
     marginTop: '10px',
     textAlign: 'left',
+    boxShadow:
+      '0px 3px 1px -2px rgb(145 158 171 / 20%), 0px 2px 2px 0px rgb(145 158 171 / 14%), 0px 1px 5px 0px rgb(145 158 171 / 12%)',
+  },
+  '& .Resume': {
+    marginTop: '10px',
+    textAlign: 'left',
+    boxShadow:
+    '0px 3px 1px -2px rgb(145 158 171 / 20%), 0px 2px 2px 0px rgb(145 158 171 / 14%), 0px 1px 5px 0px rgb(145 158 171 / 12%)',
+  },
+  '& .resume-download': {
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  '& .pdf': {
+    fontSize: '18px',
+  },
+  // '& .css-1byr0tz': {
+  // background: "#f2f2f2"
+  // },
+  '& .manage': {
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: "20px"
+  },
+  '& .experience': {
+    padding: '15px',
   },
 }));
 // css-jjtu05
