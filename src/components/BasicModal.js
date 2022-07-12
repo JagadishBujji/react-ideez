@@ -6,6 +6,12 @@ import Modal from '@mui/material/Modal';
 import TextField from '@mui/material/TextField';
 import { Divider } from '@mui/material';
 import Autocomplete from '@mui/material/Autocomplete';
+import TextareaAutosize from '@mui/material/TextareaAutosize';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
+import { useState } from 'react';
 import Iconify from './Iconify';
 
 const style = {
@@ -43,7 +49,12 @@ const create = {
   //    color: "#EEB5EB"
 };
 
-export default function BasicModal() {
+export default function BasicModal(props) {
+  const [Job, setAge] = React.useState('');
+
+  const handleChange = (event) => {
+    setAge(event.target.value);
+  };
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -178,7 +189,7 @@ export default function BasicModal() {
   return (
     <div>
       <Button sx={create} onClick={handleOpen} startIcon={<Iconify icon="eva:plus-fill" />}>
-        Create Job
+        {props.create}
       </Button>
 
       <Modal
@@ -188,46 +199,117 @@ export default function BasicModal() {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <Typography id="modal-modal-title" variant="h4" component="h2">
-            Create Job Post
+          <Typography className="publish" id="modal-modal-title" variant="h4" component="h2">
+            {/* Create Job Post */} {props.head}
           </Typography>
           <Divider />
           <br />
-
-          <TextField fullWidth id="outlined-basic" label="Job Title" variant="outlined" />
-          <br />
-          <br />
-          <TextField fullWidth id="outlined-basic" label="Company Name" variant="outlined" />
-          <br />
-          <br />
-          <TextField fullWidth id="outlined-basic" label=" Experience" variant="outlined" />
-          <br />
-          <br />
-          <TextField fullWidth id="outlined-basic" label="Location" variant="outlined" />
-          <br />
-          <br />
-          <Autocomplete
-            multiple
-            id="tags-outlined"
-            options={top100Films}
-            getOptionLabel={(option) => option.title}
-            defaultValue={[top100Films[13]]}
-            filterSelectedOptions
-            renderInput={(params) => <TextField {...params} label="filterSelectedOptions" placeholder="Favorites" />}
-          />
-          <br />
-          <TextField fullWidth id="outlined-basic" label="Desc" variant="outlined" />
-          <br />
-          <br />
-          <TextField fullWidth id="outlined-basic" label="Annuel CTC" variant="outlined" />
-          <br />
-          <br />
-          <div className="row" style={button}>
-            <Button variant="outlined" sx={{ mr: 2 }}>
-              Cancel
-            </Button>
-            <Button variant="contained">Save</Button>
-          </div>
+          {props.type === 'job' ? (
+            <>
+              <TextField fullWidth id="outlined-basic" label="Job Title" variant="outlined" />
+              <br />
+              <br />
+              <TextField fullWidth id="outlined-basic" label="Company Name" variant="outlined" />
+              <br />
+              <br />
+              <TextareaAutosize
+                aria-label="minimum height"
+                minRows={3}
+                placeholder="Desc"
+                style={{ width: 745, padding: '20px', borderRadius: '10px' }}
+                fullWidth
+              />
+              <br />
+              <br />
+              <TextField fullWidth id="outlined-basic" label="Experience" variant="outlined" />
+              <br />
+              <br />
+              <TextField fullWidth id="outlined-basic" label="Location" variant="outlined" />
+              <br />
+              <br />
+              <TextareaAutosize
+                aria-label="minimum height"
+                minRows={3}
+                placeholder="Address"
+                style={{ width: 745, padding: '20px', borderRadius: '10px' }}
+                fullWidth
+              />
+              <br />
+              <br />
+              <Autocomplete
+                multiple
+                id="tags-outlined"
+                options={top100Films}
+                getOptionLabel={(option) => option.title}
+                defaultValue={[top100Films[13]]}
+                filterSelectedOptions
+                renderInput={(params) => <TextField {...params} label="Skills" placeholder="Favorites" />}
+              />
+              <br />
+              <br />
+              <TextField fullWidth id="outlined-basic" label="Annuel CTC" variant="outlined" />
+              <br />
+              <br />
+              <TextField fullWidth id="outlined-basic" label="Position" variant="outlined" />
+              <br />
+              <br />
+              <FormControl fullWidth>
+                <InputLabel id="demo-simple-select-label">Job Type</InputLabel>
+                <Select
+                  labelId="demo-simple-select-label"
+                  id="demo-simple-select"
+                  value={Job}
+                  label="Job Type"
+                  onChange={handleChange}
+                >
+                  <MenuItem value={10}>Ten</MenuItem>
+                  <MenuItem value={20}>Twenty</MenuItem>
+                  <MenuItem value={30}>Thirty</MenuItem>
+                </Select>
+              </FormControl>
+              <br />
+              <br />
+              <TextField fullWidth id="outlined-basic" label="Education" variant="outlined" />
+              <br />
+              <br />
+              <TextField fullWidth id="outlined-basic" label="Experience" variant="outlined" />
+              <br />
+              <br />
+              <TextField fullWidth id="outlined-basic" label="Application" variant="outlined" />
+              <br />
+              <br />
+              <TextField fullWidth id="outlined-basic" label="Status" variant="outlined" />
+              <br />
+              <br />
+              <div className="row" style={button}>
+                <Button variant="outlined" sx={{ mr: 2 }}>
+                  Cancel
+                </Button>
+                <Button variant="contained">Save</Button>
+              </div>
+            </>
+          ) : (
+            <>
+              <TextField fullWidth id="outlined-basic" label="Event Title" variant="outlined" />
+              <br />
+              <br />
+              <TextField fullWidth id="outlined-basic" label="Company Name" variant="outlined" />
+              <br />
+              <br />
+              <TextField fullWidth id="outlined-basic" label="Experience" variant="outlined" />
+              <br />
+              <br />
+              <TextField fullWidth id="outlined-basic" label="Location" variant="outlined" />
+              <br />
+              <br />
+              <div className="row" style={button}>
+                <Button variant="outlined" sx={{ mr: 2 }}>
+                  Cancel
+                </Button>
+                <Button variant="contained">Save</Button>
+              </div>
+            </>
+          )}
         </Box>
       </Modal>
     </div>

@@ -4,9 +4,9 @@ import Iconify from '../../components/Iconify';
 
 // ----------------------------------------------------------------------
 
-const getIcon = (name) => <Iconify icon={name} width={22} height={22} sx={{color: "#00EAD9"} } />;
+const getIcon = (name) => <Iconify icon={name} width={22} height={22} sx={{ color: '#00EAD9' }} />;
 
-const navConfig = [
+const navConfigRecruiter = [
   {
     title: 'dashboard',
     path: '/dashboard/app',
@@ -44,4 +44,17 @@ const navConfig = [
   // },
 ];
 
-export default navConfig;
+const navConfigAdmin = [
+  {
+    title: 'dashboard',
+    path: '/admin/dashboard',
+    icon: getIcon('eva:pie-chart-2-fill'),
+  },
+  {
+    title: 'Profile',
+    path: '/admin/profile',
+    icon: getIcon('eva:file-text-fill'),
+  },
+];
+
+export { navConfigRecruiter, navConfigAdmin };

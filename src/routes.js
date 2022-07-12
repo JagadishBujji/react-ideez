@@ -20,7 +20,7 @@ export default function Router() {
   return useRoutes([
     {
       path: '/dashboard',
-      element: <DashboardLayout />,
+      element: <DashboardLayout roles="recruiter" />,
       children: [
         { path: 'app', element: <DashboardApp /> },
         { path: 'jobs', element: <User /> },
@@ -36,7 +36,7 @@ export default function Router() {
             />
           ),
           children: [
-            { path: 'view-applicants', element: <JobReview /> },
+            { path: 'view-applicants', element: <JobReview type="job" /> },
             { path: 'manage-job', element: <ManageItems /> },
           ],
         },
@@ -60,6 +60,15 @@ export default function Router() {
             { path: 'manage-event', element: <ManageItems /> },
           ],
         },
+        { path: 'profile', element: <Profile /> },
+      ],
+    },
+    {
+      path: '/admin',
+      element: <DashboardLayout roles="admin"/>,
+      children: [
+        { path: '/admin', element: <Navigate to="/admin/dashboard" /> },
+        { path: 'dashboard', element: <DashboardApp /> },
         { path: 'profile', element: <Profile /> },
       ],
     },

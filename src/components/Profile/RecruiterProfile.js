@@ -70,10 +70,10 @@ const RecruiterProfile = () => {
                     // style={profile}
                     className="profile"
                   />
-                  <Typography sx={{textAlign: "center"}}variant="subtitle1" color="text.secondary" component="div">
+                  <Typography sx={{ textAlign: 'center' }} variant="subtitle1" color="text.secondary" component="div">
                     Jagadish Kumar
                   </Typography>
-                  <Typography sx={{textAlign: "center"}} variant="subtitle1" color="text.secondary" component="div">
+                  <Typography sx={{ textAlign: 'center' }} variant="subtitle1" color="text.secondary" component="div">
                     jagadish00198@mail.com
                   </Typography>
                 </Grid>
@@ -168,7 +168,7 @@ const RecruiterProfile = () => {
                     </Box>
                   </Box>
                   <Box className="btnrow">
-                    <Button variant="outline" sx={{ marginLeft: '5px' }}>
+                    <Button variant="outline" sx={{ marginRight: '10px', border: "1px solid #EEB5EB", color: "#EEB5EB" }}>
                       cancel
                     </Button>
                     <Button variant="contained" className="publish">

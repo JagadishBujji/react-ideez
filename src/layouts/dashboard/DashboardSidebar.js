@@ -13,7 +13,7 @@ import Logo from '../../components/Logo';
 import Scrollbar from '../../components/Scrollbar';
 import NavSection from '../../components/NavSection';
 //
-import navConfig from './NavConfig';
+import { navConfigRecruiter, navConfigAdmin } from './NavConfig';
 
 // ----------------------------------------------------------------------
 
@@ -41,7 +41,7 @@ DashboardSidebar.propTypes = {
   onCloseSidebar: PropTypes.func,
 };
 
-export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar }) {
+export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar, roles }) {
   const { pathname } = useLocation();
 
   const isDesktop = useResponsive('up', 'lg');
@@ -50,6 +50,7 @@ export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar }) {
     if (isOpenSidebar) {
       onCloseSidebar();
     }
+    console.log('roles', roles);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pathname]);
 
@@ -57,13 +58,15 @@ export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar }) {
     <Scrollbar
       sx={{
         height: 1,
-        '& .simplebar-content': { height: 1, display: 'flex', flexDirection: 'column', backgroundColor: "#E7f6fc" },
+        '& .simplebar-content': { height: 1, display: 'flex', flexDirection: 'column', backgroundColor: '#E7f6fc' },
       }}
     >
       <Box sx={{ px: 2.5, py: 3, display: 'inline-flex' }}>
-        <Typography variant="h3" component="h2">IDEEZ</Typography>
+        <Typography variant="h3" component="h2">
+          IDEEZ
+        </Typography>
       </Box>
-{/* 
+      {/* 
       <Box sx={{ mb: 5, mx: 2.5 }}>
         <Link underline="none" component={RouterLink} to="#">
           <AccountStyle>
@@ -80,7 +83,7 @@ export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar }) {
         </Link>
       </Box> */}
 
-      <NavSection navConfig={navConfig} />
+      {roles === 'admin' ? <NavSection navConfig={navConfigAdmin} /> : <NavSection navConfig={navConfigRecruiter} />}
 
       <Box sx={{ flexGrow: 1 }} />
 

@@ -37,7 +37,7 @@ import USERLIST from '../_mock/user';
 // import MediaControlCard from 'src/components/Reuseable/MediaControlCard';
 import MediaControlCard from '../components/MediaControlCard';
 // import BasicModal from '../components/BasicModal';
-import BasicModal1 from '../components/BasicModal1';
+import BasicModal from '../components/BasicModal';
 // import { styled } from '@mui/material/styles';
 // import Box from '@mui/material/Box';
 // import Paper from '@mui/material/Paper';
@@ -164,11 +164,11 @@ export default function User(props) {
           {/* <Button variant="contained" component={RouterLink} to="#" startIcon={<Iconify icon="eva:plus-fill" />}>
             New User
           </Button> */}
-          <BasicModal1 />
+          <BasicModal create="Create Event" head="Create Event Post" />
         </Stack>
 
         <Card>
-          <UserListToolbar numSelected={selected.length} filterName={filterName} onFilterName={handleFilterByName} />
+          {/* <UserListToolbar numSelected={selected.length} filterName={filterName} onFilterName={handleFilterByName} /> */}
 
           <Scrollbar sx={{ padding: '20px' }}>
             <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>

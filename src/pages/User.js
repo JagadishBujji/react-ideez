@@ -163,7 +163,7 @@ export default function User() {
           {/* <Button variant="contained" component={RouterLink} to="#" startIcon={<Iconify icon="eva:plus-fill" />}>
             New User
           </Button> */}
-          <BasicModal />
+          <BasicModal create="Create Job" head="Create Job Post" type="job" />
         </Stack>
 
         <Card>

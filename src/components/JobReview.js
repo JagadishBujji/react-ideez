@@ -30,7 +30,7 @@ import ApplicantResume from './Applicant/ApplicantResume';
 import ApplicantSkills from './Applicant/ApplicantSkills';
 import Scrollbar from './Scrollbar';
 
-const JobReview = () => {
+const JobReview = (props) => {
   const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
     ...theme.typography.body2,
@@ -53,49 +53,99 @@ const JobReview = () => {
           <Card
             sx={{ display: 'flex', background: '#fff', borderRadius: '5px', position: 'relative', boxShadow: 'none' }}
           >
-            <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
-              <Grid item xs={5} sx={{background: "#f2f2f2"}}>
-                <Item
-                  sx={{
-                    boxShadow:
-                      '0px 3px 1px -2px rgb(145 158 171 / 20%), 0px 2px 2px 0px rgb(145 158 171 / 14%), 0px 1px 5px 0px rgb(145 158 171 / 12%)',
-                  }}
-                >
-                  <article className="message-list">
-                    <ul className="messages">
-                      <li className="day">
-                        {/* <a href="/" title="Date: Today">
+            {props.type === 'job' ? (
+              <>
+                <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
+                  <Grid item xs={5} sx={{ background: '#f2f2f2' }}>
+                    <Item
+                      sx={{
+                        boxShadow:
+                          '0px 3px 1px -2px rgb(145 158 171 / 20%), 0px 2px 2px 0px rgb(145 158 171 / 14%), 0px 1px 5px 0px rgb(145 158 171 / 12%)',
+                      }}
+                    >
+                      <article className="message-list">
+                        <ul className="messages">
+                          <li className="day">
+                            {/* <a href="/" title="Date: Today">
                           Today
                         </a> */}
-                        <ApplicantCard />
-                        <Divider />
-                        <ApplicantCard />
-                        <Divider />
-                        <ApplicantCard />
-                        <Divider />
-                        <ApplicantCard />
-                        <Divider />
-                        <ApplicantCard />
-                        <Divider />
-                        <ApplicantCard />
-                        <Divider />
-                        <ApplicantCard />
-                        <Divider />
-                        <ApplicantCard />
-                      </li>
-                    </ul>
-                  </article>
-                </Item>
-              </Grid>
-              <Grid item xs={7} sx={desc}>
+                            <ApplicantCard />
+                            <Divider />
+                            <ApplicantCard />
+                            <Divider />
+                            <ApplicantCard />
+                            <Divider />
+                            <ApplicantCard />
+                            <Divider />
+                            <ApplicantCard />
+                            <Divider />
+                            <ApplicantCard />
+                            <Divider />
+                            <ApplicantCard />
+                            <Divider />
+                            <ApplicantCard />
+                          </li>
+                        </ul>
+                      </article>
+                    </Item>
+                  </Grid>
+                  <Grid item xs={7} sx={desc}>
+                    <ApplicantDesc />
+                    <ApplicantInsights />
+                    <ApplicantSkills />
+                    <ApplicantCertificate />
+                    <ApplicantResume />
+                    <ApplicantContact />
+                  </Grid>
+                </Grid>
+              </>
+            ) : (
+              <>
+                <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
+                  <Grid item xs={12} sx={{ background: '#f2f2f2' }}>
+                    <Item
+                      sx={{
+                        boxShadow:
+                          '0px 3px 1px -2px rgb(145 158 171 / 20%), 0px 2px 2px 0px rgb(145 158 171 / 14%), 0px 1px 5px 0px rgb(145 158 171 / 12%)',
+                      }}
+                    >
+                      <article className="message-list">
+                        <ul className="messages">
+                          <li className="day">
+                            {/* <a href="/" title="Date: Today">
+                          Today
+                        </a> */}
+                            <ApplicantCard />
+                            <Divider />
+                            <ApplicantCard />
+                            <Divider />
+                            <ApplicantCard />
+                            <Divider />
+                            <ApplicantCard />
+                            <Divider />
+                            <ApplicantCard />
+                            <Divider />
+                            <ApplicantCard />
+                            <Divider />
+                            <ApplicantCard />
+                            <Divider />
+                            <ApplicantCard />
+                          </li>
+                        </ul>
+                      </article>
+                    </Item>
+                  </Grid>
+                  {/* <Grid item xs={7} sx={desc}>
                 <ApplicantDesc />
                 <ApplicantInsights />
                 <ApplicantSkills />
                 <ApplicantCertificate />
                 <ApplicantResume />
                 <ApplicantContact />
-              </Grid>
-            </Grid>
+              </Grid> */}
+                </Grid>
+              </>
+            )}
           </Card>
         </Scrollbar>
       </Container>
