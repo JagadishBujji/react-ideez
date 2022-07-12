@@ -8,7 +8,7 @@ import User from './pages/User';
 import Login from './pages/Login';
 import NotFound from './pages/Page404';
 import Register from './pages/Register';
-import Products from './pages/Products';
+import Event from './pages/Event';
 import DashboardApp from './pages/DashboardApp';
 import ItemDescription from './components/ItemDescription';
 import JobReview from './components/JobReview';
@@ -42,7 +42,7 @@ export default function Router() {
         },
         {
           path: 'events',
-          element: <Products />,
+          element: <Event />,
         },
         {
           path: 'events/:eventId',

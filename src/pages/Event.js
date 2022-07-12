@@ -155,7 +155,7 @@ export default function User(props) {
   const isUserNotFound = filteredUsers.length === 0;
 
   return (
-    <Page title="User">
+    <Page title="Event">
       <Container>
         <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
           <Typography variant="h4" gutterBottom>

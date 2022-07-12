@@ -7,6 +7,7 @@ import Iconify from '../components/Iconify';
 import { BlogPostCard, BlogPostsSort, BlogPostsSearch } from '../sections/@dashboard/blog';
 // mock
 import POSTS from '../_mock/blog';
+import RecruiterProfile from '../components/Profile/RecruiterProfile';
 
 // ----------------------------------------------------------------------
 
@@ -30,6 +31,7 @@ export default function Profile() {
             New Post
           </Button> */}
         </Stack>
+        <RecruiterProfile/>
       </Container>
     </Page>
   );
