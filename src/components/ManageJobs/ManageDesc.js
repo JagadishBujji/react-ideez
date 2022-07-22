@@ -23,7 +23,8 @@ import {
 } from '@mui/material';
 import EditIcon from '@mui/icons-material/Edit';
 import IconButton from '../../theme/overrides/IconButton';
-import ApplicantSkills from '../Applicant/ApplicantSkills';
+import ApplicantSkills from '../Applicant/ApplicantSkills'; 
+import BasicModal2 from '../BasicModal2';
 
 const ManageDesc = (props) => {
   const Item = styled(Paper)(({ theme }) => ({
@@ -52,8 +53,9 @@ const ManageDesc = (props) => {
             {props.heading}
             {/* Job description */}
           </h2>
+          <BasicModal2  head="Edit Job Post" type="job"  initialData={props.data}  create="Edit Job" />
 
-          <EditIcon />
+          {/* <EditIcon /> */}
         </div>
 
         <div className="row manage">
@@ -93,7 +95,7 @@ const ManageDesc = (props) => {
         </div>
         <div>
           {/* <Typography variant="h6">skills</Typography> */}
-          <ApplicantSkills />
+          <ApplicantSkills skills={props.skills} />
         </div>
       </Item>
     </>

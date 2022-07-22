@@ -22,9 +22,8 @@ import {
   Divider,
 } from '@mui/material';
 import ManageDesc from '../ManageJobs/ManageDesc';
-import Scrollbar from '../Scrollbar';
-
-const ManageEvent = () => {
+import Scrollbar from '../Scrollbar'; 
+const ManageEvent = () => { 
   return (
     <>
       <Container>

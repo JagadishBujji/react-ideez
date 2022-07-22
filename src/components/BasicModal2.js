@@ -15,7 +15,7 @@ import { useDispatch } from 'react-redux';
 import Select from '@mui/material/Select';
 import { useState } from 'react';
 import Iconify from './Iconify';
-import { addData } from '../redux/formData';
+import { updateData } from '../redux/formData';
 
 const style = {
   position: 'absolute',
@@ -52,14 +52,17 @@ const create = {
   //    color: "#EEB5EB"
 };
 
-export default function BasicModal(props) {
-  const [Job, setAge] = React.useState('');
+export default function BasicModal2({initialData,head,create,type}) {
+     
+    const [Job, setAge] = React.useState('');
   const [data,setData]=useState([]);
   const dispatch=useDispatch();
+  console.log("props",initialData)
   const handleChange = (event) => {
     setAge(event.target.value);
     setJobType(event.target.value)
   };
+  
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -190,28 +193,27 @@ export default function BasicModal(props) {
     { title: '3 Idiots', year: 2009 },
     { title: 'Monty Python and the Holy Grail', year: 1975 },
   ];
-  const [selectedTeam, setSelectedTeam] = useState(null);
-  const [jobTitle,setJobTitle]=useState();
-  const [companyName,setCompanyName]=useState();
-  const [desc,setDesc]=useState();
-  const [experience,setExperience]=useState();
-  const [location,setLocation]=useState();
-  const [address,setAddress]=useState();
+  const [selectedTeam, setSelectedTeam] = useState(initialData.selectedTeam);
+  const [jobTitle,setJobTitle]=useState(initialData.jobTitle);
+  const [companyName,setCompanyName]=useState(initialData.companyName);
+  const [desc,setDesc]=useState(initialData.desc);
+  const [experience,setExperience]=useState(initialData.experience);
+  const [location,setLocation]=useState(initialData.location);
+  const [address,setAddress]=useState(initialData.address);
   // const [skills,setSkills]=useState();
   const [skills,setSkills]=useState([])
-  const [annuelCTC,setAnnuelCTC]=useState();
-  const [position,setPosition]=useState();
-  const [jobType,setJobType]=useState();
-  const [education,setEducation]=useState();
-  const [application,setApplication]=useState();
-  const [status,setStatus]=useState();
+  const [annuelCTC,setAnnuelCTC]=useState(initialData.annuelCTC);
+  const [position,setPosition]=useState(initialData.position);
+  const [jobType,setJobType]=useState(initialData.jobType);
+  const [education,setEducation]=useState(initialData.education);
+  const [application,setApplication]=useState(initialData.application);
+  const [status,setStatus]=useState(initialData.status);
   const handleFormSubmit=()=>{
     // console.log(data);
     // console.log(jobTitle,companyName,desc,experience,location,address,skills,
-      // annuelCTC,position,jobType,education,application,status)
-      const x = Math.floor(Math.random() * 1000000);
+      // annuelCTC,position,jobType,education,application,status) 
       const newData={
-        id:x,
+        id:initialData.id,
       jobTitle,
       companyName,
       desc,
@@ -226,34 +228,17 @@ export default function BasicModal(props) {
        application,
        status
     }
-    // setData([...data,newData]);
-    // console.log(data);
-    // setSkills(["Inception"])
-    const newDats=[...props.data,newData]
-    props.setData([...props.data,newData])
-    dispatch(addData(newData))
-    // setSkills(["Inception"])
-    setSkills([])
+    console.log(newData)
+    dispatch(updateData(newData))
     handleClose();
-    setJobTitle("")
-    setCompanyName("")
-    setDesc("")
-    setExperience("")
-    setLocation("")
-    setAddress("")
-    // setSkills([])
-    setAnnuelCTC("")
-    setSelectedTeam("");
-    setPosition("")
-    setJobType("")
-    setEducation("")
-    setApplication("")
-    setStatus("")
+   
   }
+
+ 
   return (
     <div>
       <Button sx={create} onClick={handleOpen} startIcon={<Iconify icon="eva:plus-fill" />}>
-        {props.create}
+        {create}
       </Button>
 
       <Modal
@@ -264,11 +249,11 @@ export default function BasicModal(props) {
       >
         <Box sx={style}>
           <Typography className="publish" id="modal-modal-title" variant="h4" component="h2">
-            {/* Create Job Post */} {props.head}
+            {/* Create Job Post */} {head}
           </Typography>
           <Divider />
           <br />
-          {props.type === 'job' ? (
+          {type === 'job' ? (
             <>
             <form onSubmit={()=>handleFormSubmit()}>
               <TextField required value={jobTitle} onChange={(e)=>setJobTitle(e.target.value)} fullWidth id="outlined-basic" label="Job Title" variant="outlined" />
@@ -322,7 +307,8 @@ export default function BasicModal(props) {
                 id="tags-outlined"
                 options={top100Films}
                 getOptionLabel={(option) => option.title}
-                defaultValue={[top100Films[13]]}
+                // defaultValue={[top100Films[13]]}
+                defaultValue={initialData.selectedTeam}
                 filterSelectedOptions
                 // onChange={(e)=>{
                 //   console.log(e)
@@ -376,9 +362,10 @@ export default function BasicModal(props) {
                 <Button   onClick={()=>handleClose()} variant="outlined" sx={{ mr: 2 }}>
                   Cancel
                 </Button>
-                <Button type='submit'
-                //  onClick={()=>handleFormSubmit()}
-                  variant="contained">Save</Button>
+                <Button type='button'  
+                 onClick={()=>handleFormSubmit()}
+                //   variant="contained"
+                  >Save</Button>
               </div>
               </form>
             </>

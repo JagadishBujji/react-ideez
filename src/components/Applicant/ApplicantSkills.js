@@ -22,7 +22,7 @@ import {
   Divider,
 } from '@mui/material';
 
-const ApplicantSkills = () => {
+const ApplicantSkills = (props) => {
   const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
     ...theme.typography.body2,
@@ -36,12 +36,15 @@ const ApplicantSkills = () => {
         <header>
           <Typography variant="h6" sx={{mb: 2}}>Skills</Typography>
           <div className="row skills">
-            <p className="java">Java</p>
+            {/* <p className="java">Java</p>
             <p className="react">ReactJS</p>
             <br/>
             <p className="javascript">Javascript</p>
             <p className="html">HTML</p>
-            <p className="css">CSS</p>
+            <p className="css">CSS</p> */}
+            {props.skills.map((m)=>(
+              <p className="javascript">{m.title}</p>
+            ))}
           </div>
         </header>
       </Item>

@@ -62,7 +62,7 @@ export default function MediaControlCard(props) {
                 <b>{props.head}</b>
               </Typography>
               {/* ... options */}
-              <AccountMenu type={props.type} />
+              <AccountMenu type={props.type} DataId={props.id} />
             </div>
             <Typography variant="subtitle1" theme={theme} color="text.secondary" component="div">
               {props.company}

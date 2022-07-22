@@ -1,3 +1,4 @@
+import { useEffect ,useState} from 'react'; 
 import {
   Card,
   Table,
@@ -21,10 +22,18 @@ import {
   styled,
   Divider,
 } from '@mui/material';
+import { useLocation } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import Scrollbar from '../Scrollbar';
 import ManageDesc from './ManageDesc';
 
+
 const ManageItems = () => {
+  const [data,setData]=useState();
+  const location=useLocation();
+  // console.log(location.state.id) 
+  const indData=useSelector((state)=>state.formData.formData);
+  // console.log("data is",data)
   const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
     ...theme.typography.body2,
@@ -32,7 +41,18 @@ const ManageItems = () => {
     textAlign: 'center',
     color: theme.palette.text.secondary,
   }));
-
+ 
+  useEffect(()=>{
+    const wanted=location.state.id; 
+    if(indData)
+    {
+      const ss=indData.filter((ins)=>{
+        return ins.id===wanted
+      })
+      console.log(ss)
+      setData(ss[0])
+    }
+  },[indData])
   return (
     <>
       <Container>
@@ -48,7 +68,7 @@ const ManageItems = () => {
           >
             <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
               <Grid item xs={9}>
-                <ManageDesc
+                {/* <ManageDesc
                   heading="Job description"
                   head="Job description"
                   type="Employement Type"
@@ -56,7 +76,18 @@ const ManageItems = () => {
                   desc="We are looking for enthusistic who have the willingness to join our
                   our organization within 15 days. 40k - 45K per month."
                   candidateprofile="Desired Candidate Profile for Javascript Developer"
-                />
+                /> */}
+              {data &&  <ManageDesc
+                  data={data}
+                  heading={data.jobTitle}
+                  head={data.companyName}
+                  type={data.jobType}
+                  employer={data.location}
+                  skills={data.selectedTeam}
+                  desc="We are looking for enthusistic who have the willingness to join our
+                  our organization within 15 days. 40k - 45K per month."
+                  candidateprofile="Desired Candidate Profile for Javascript Developer"
+                /> }
               </Grid>
               <Grid item xs={3}>
                 <Item

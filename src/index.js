@@ -5,7 +5,9 @@ import "./style.css"
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
-
+import { configureStore } from '@reduxjs/toolkit';
+import { Provider } from 'react-redux';
+import dataReducer from './redux/formData'
 //
 import App from './App';
 import * as serviceWorker from './serviceWorker';
@@ -14,11 +16,17 @@ import reportWebVitals from './reportWebVitals';
 // ----------------------------------------------------------------------
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-
+const store=configureStore({
+  reducer:{
+    formData:dataReducer
+  }
+})
 root.render(
   <HelmetProvider>
     <BrowserRouter>
+    <Provider store={store}>
       <App />
+      </Provider>
     </BrowserRouter>
   </HelmetProvider>
 );

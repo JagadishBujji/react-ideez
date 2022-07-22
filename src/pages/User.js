@@ -1,7 +1,8 @@
 import { filter } from 'lodash';
 import { sentenceCase } from 'change-case';
 import { useState } from 'react';
-import { Link as RouterLink } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { Link as RouterLink,useLocation } from 'react-router-dom';
 // material
 import {
   Card,
@@ -93,7 +94,8 @@ function applySortFilter(array, comparator, query) {
 
 export default function User() {
   const [page, setPage] = useState(0);
-
+const location=useLocation();
+console.log(location)
   const [order, setOrder] = useState('asc');
 
   const [selected, setSelected] = useState([]);
@@ -103,7 +105,8 @@ export default function User() {
   const [filterName, setFilterName] = useState('');
 
   const [rowsPerPage, setRowsPerPage] = useState(5);
-
+  const formdara=useSelector((state)=>state.formData.formData)
+  console.log(formdara)
   const handleRequestSort = (event, property) => {
     const isAsc = orderBy === property && order === 'asc';
     setOrder(isAsc ? 'desc' : 'asc');
@@ -153,6 +156,10 @@ export default function User() {
 
   const isUserNotFound = filteredUsers.length === 0;
 
+  const [formData,setFormData]=useState([])
+  localStorage.setItem("formData",formData)
+  console.log(formData)
+  console.log("local",JSON.stringify(localStorage.getItem("formData")))
   return (
     <Page title="User">
       <Container>
@@ -163,14 +170,14 @@ export default function User() {
           {/* <Button variant="contained" component={RouterLink} to="#" startIcon={<Iconify icon="eva:plus-fill" />}>
             New User
           </Button> */}
-          <BasicModal create="Create Job" head="Create Job Post" type="job" />
-        </Stack>
+          <BasicModal data={formData} setData={setFormData} create="Create Job" head="Create Job Post" type="job" />
+        </Stack> 
 
         <Card>
           <UserListToolbar numSelected={selected.length} filterName={filterName} onFilterName={handleFilterByName} />
 
           <Scrollbar sx={{ padding: '20px' }}>
-            <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
+            {/* <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
               <Grid item xs={8}>
                 <Item>
                   <MediaControlCard
@@ -185,10 +192,37 @@ export default function User() {
                   />
                 </Item>
               </Grid>
+              
+              <Grid item xs={4}>
+                <Item>xs=4</Item>
+              </Grid>
+            </Grid> */}
+
+            {formdara && formdara.map((dat)=>(
+              <div key={dat.id}>
+              <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
+              <Grid item xs={8}>
+                <Item>
+                  <MediaControlCard
+                    head={dat.jobTitle}
+                    company={dat.companyName}
+                    time={dat.experience}
+                    location={dat.location}
+                    // skills="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+                    desc={dat.desc}
+                    payment={dat.annuelCTC}
+                    type={dat.jobType}
+                    id={dat.id}
+                  />
+                </Item>
+              </Grid>
+              
               <Grid item xs={4}>
                 <Item>xs=4</Item>
               </Grid>
             </Grid>
+              </div>
+            ))}
 
             {/* <TableContainer sx={{ minWidth: 800 }}>
               <Table>

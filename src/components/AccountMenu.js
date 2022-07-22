@@ -15,7 +15,7 @@ import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import { useNavigate } from 'react-router-dom';
 // import Button from '@mui/material/Button';
 
-export default function AccountMenu({ type }) {
+export default function AccountMenu({ type ,DataId}) {
   const navigate = useNavigate();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
@@ -83,7 +83,7 @@ export default function AccountMenu({ type }) {
           <>
             <MenuItem
               onClick={() =>
-                navigate('/dashboard/jobs/123/manage-job', { state: { type, id: '123', action: 'manage-job' } })
+                navigate('/dashboard/jobs/123/manage-job', { state: { type, id:'123' , action: 'manage-job' } })
               }
             >
               Manage Job
@@ -102,7 +102,7 @@ export default function AccountMenu({ type }) {
           <>
             <MenuItem
               onClick={() =>
-                navigate('/dashboard/events/123/manage-event', { state: { type, id: '123', action: 'manage-event' } })
+                navigate('/dashboard/events/123/manage-event', { state: { type, id: DataId, action: 'manage-event' } })
               }
             >
               Manage Event
