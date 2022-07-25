@@ -51,9 +51,19 @@ const navConfigAdmin = [
     icon: getIcon('eva:pie-chart-2-fill'),
   },
   {
+    title: 'user list',
+    path: '/admin/userlist',
+    icon: getIcon('eva:people-fill'),
+  },
+  {
+    title: 'recruiter List',
+    path: '/admin/recruiter',
+    icon: getIcon('eva:lock-fill'),
+  },
+  {
     title: 'Profile',
     path: '/admin/profile',
-    icon: getIcon('eva:file-text-fill'),
+    icon: getIcon('bxs:user'),
   },
 ];
 
