@@ -83,7 +83,7 @@ export default function AccountMenu({ type ,DataId}) {
           <>
             <MenuItem
               onClick={() =>
-                navigate('/dashboard/jobs/123/manage-job', { state: { type, id:'123' , action: 'manage-job' } })
+                navigate('/dashboard/jobs/123/manage-job', { state: { type, id:DataId , action: 'manage-job' } })
               }
             >
               Manage Job
@@ -102,7 +102,7 @@ export default function AccountMenu({ type ,DataId}) {
           <>
             <MenuItem
               onClick={() =>
-                navigate('/dashboard/events/123/manage-event', { state: { type, id: DataId, action: 'manage-event' } })
+                navigate('/dashboard/events/123/manage-event', { state: { type, id: '123', action: 'manage-event' } })
               }
             >
               Manage Event
