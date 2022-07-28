@@ -7,6 +7,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
+import { useNavigate } from 'react-router-dom';
 
 const columns = [
   { id: 'id', label: 'Recruiter Id', minWidth: 200 },
@@ -53,6 +54,7 @@ const rows = [
 export default function AdminTableRecruiter() {
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
+  const navigate = useNavigate();
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
@@ -70,7 +72,7 @@ export default function AdminTableRecruiter() {
           <TableHead>
             <TableRow>
               <TableCell align="center" colSpan={5}>
-                Country
+                Recruiter List
               </TableCell>
               {/* <TableCell align="center" colSpan={3}>
                 Details
@@ -91,7 +93,11 @@ export default function AdminTableRecruiter() {
                   {columns.map((column) => {
                     const value = row[column.id];
                     return (
-                      <TableCell key={column.id} align={column.align}>
+                      <TableCell
+                        onClick={() => navigate('/admin/recruiterlist/123')}
+                        key={column.id}
+                        align={column.align}
+                      >
                         {column.format && typeof value === 'number' ? column.format(value) : value}
                       </TableCell>
                     );

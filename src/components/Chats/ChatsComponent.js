@@ -5,7 +5,7 @@ const ChatsComponent = () => {
   return (
     <>
       <Grid container spacing={2}>
-        <Grid item xs={4} className=" jobsearch">
+        <Grid item lg={4} md={12} xs={12} className=" jobsearch">
           <div className="whatsapp_main_sidemenu">
             <div className="whatapp_main_sidemenu_top">
               <Grid container spacing={2} className="profile-icon">

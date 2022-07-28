@@ -16,6 +16,8 @@ import ManageItems from './components/ManageJobs/ManageItems';
 import AdminUserList from './pages/AdminUserList';
 import AdminRecruiterList from './pages/AdminRecruiterList';
 import Chat from './pages/Chat';
+import AdminUserId from './components/AdminSide/AdminUserId';
+import AdminRecruiterId from './components/AdminSide/AdminRecruiterId';
 
 // ----------------------------------------------------------------------
 
@@ -76,8 +78,13 @@ export default function Router() {
       children: [
         { path: '/admin', element: <Navigate to="/admin/dashboard" /> },
         { path: 'dashboard', element: <DashboardApp /> },
-        { path: 'userlist', element: <AdminUserList /> },
+        {
+          path: 'userlist',
+          element: <AdminUserList />,
+        },
+        { path: 'userlist/:id', element: <AdminUserId /> },
         { path: 'recruiter', element: <AdminRecruiterList /> },
+        { path: 'recruiterlist/:id', element: <AdminRecruiterId /> },
         { path: 'profile', element: <Profile /> },
       ],
     },
