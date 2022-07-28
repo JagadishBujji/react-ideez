@@ -13,6 +13,8 @@ import DashboardApp from './pages/DashboardApp';
 import ItemDescription from './components/ItemDescription';
 import JobReview from './components/JobReview';
 import ManageItems from './components/ManageJobs/ManageItems';
+import AdminUserList from './pages/AdminUserList';
+import AdminRecruiterList from './pages/AdminRecruiterList';
 
 // ----------------------------------------------------------------------
 
@@ -65,10 +67,12 @@ export default function Router() {
     },
     {
       path: '/admin',
-      element: <DashboardLayout roles="admin"/>,
+      element: <DashboardLayout roles="admin" />,
       children: [
         { path: '/admin', element: <Navigate to="/admin/dashboard" /> },
         { path: 'dashboard', element: <DashboardApp /> },
+        { path: 'userlist', element: <AdminUserList /> },
+        { path: 'recruiter', element: <AdminRecruiterList /> },
         { path: 'profile', element: <Profile /> },
       ],
     },
