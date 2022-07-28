@@ -42,7 +42,7 @@ const ApplicantSkills = (props) => {
             <p className="javascript">Javascript</p>
             <p className="html">HTML</p>
             <p className="css">CSS</p> */}
-            {props.skills.map((m)=>(
+            {props.skills && props.skills.map((m)=>(
               <p className="javascript">{m.title}</p>
             ))}
           </div>

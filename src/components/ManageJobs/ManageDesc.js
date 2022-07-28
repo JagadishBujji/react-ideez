@@ -27,6 +27,7 @@ import ApplicantSkills from '../Applicant/ApplicantSkills';
 import BasicModal2 from '../BasicModal2';
 
 const ManageDesc = (props) => {
+  console.log(props)
   const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
     ...theme.typography.body2,

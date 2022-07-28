@@ -31,9 +31,11 @@ import ManageDesc from './ManageDesc';
 const ManageItems = () => {
   const [data,setData]=useState();
   const location=useLocation();
-  // console.log(location.state.id) 
+  console.log(location.state.id)
+  console.log("manage item page") 
   const indData=useSelector((state)=>state.formData.formData);
-  // console.log("data is",data)
+  const njn=useSelector((state)=>state)
+  console.log(njn)
   const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
     ...theme.typography.body2,

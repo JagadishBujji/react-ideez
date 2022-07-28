@@ -224,7 +224,8 @@ export default function BasicModal(props) {
        jobType,
        education,
        application,
-       status
+       status,
+       type:props.type
     }
     // setData([...data,newData]);
     // console.log(data);

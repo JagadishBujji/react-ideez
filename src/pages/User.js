@@ -172,9 +172,9 @@ console.log(location)
           </Button> */}
           <BasicModal data={formData} setData={setFormData} create="Create Job" head="Create Job Post" type="job" />
         </Stack> 
-
         <Card>
           <UserListToolbar numSelected={selected.length} filterName={filterName} onFilterName={handleFilterByName} />
+          {formdara.length===0 && <p style={{textAlign:"center"}}>No job post available</p>}
 
           <Scrollbar sx={{ padding: '20px' }}>
             {/* <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
@@ -211,8 +211,9 @@ console.log(location)
                     // skills="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
                     desc={dat.desc}
                     payment={dat.annuelCTC}
-                    type={dat.jobType}
+                    jobType={dat.jobType}
                     id={dat.id}
+                    type={dat.type}
                   />
                 </Item>
               </Grid>
