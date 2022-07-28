@@ -15,6 +15,7 @@ import JobReview from './components/JobReview';
 import ManageItems from './components/ManageJobs/ManageItems';
 import AdminUserList from './pages/AdminUserList';
 import AdminRecruiterList from './pages/AdminRecruiterList';
+import Chat from './pages/Chat';
 
 // ----------------------------------------------------------------------
 
@@ -61,6 +62,10 @@ export default function Router() {
             { path: 'view-applicants', element: <JobReview /> },
             { path: 'manage-event', element: <ManageItems /> },
           ],
+        },
+        {
+          path: 'chats',
+          element: <Chat />,
         },
         { path: 'profile', element: <Profile /> },
       ],

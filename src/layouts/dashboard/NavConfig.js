@@ -23,6 +23,11 @@ const navConfigRecruiter = [
     icon: getIcon('eva:shopping-bag-fill'),
   },
   {
+    title: 'chats',
+    path: '/dashboard/chats',
+    icon: getIcon('ant-design:message-filled'),
+  },
+  {
     title: 'Profile',
     path: '/dashboard/profile',
     icon: getIcon('eva:file-text-fill'),
